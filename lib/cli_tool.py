@@ -1,14 +1,10 @@
 # cli_tool.py
 
 import argparse
-from models import Task, User
+from lib.models import Task, User
 
 # Global dictionary to store users and their tasks
 users = {}
-
-alice = User("Alice")
-unit_test_task = Task("Write unit tests")
-alice.add_task(unit_test_task)
 
 
 # Implement function to add a task for a user
@@ -16,7 +12,7 @@ def add_task(args):
     # Check if the user exists, if not, create one
     if args.user not in users:
         users[args.user] = User(args.user)
-
+    
     # Create a new Task with the given title
     task = Task(args.title)
 
